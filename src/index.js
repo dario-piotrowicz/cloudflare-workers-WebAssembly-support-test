@@ -2,7 +2,7 @@ import mod from '../add-one.wasm';
 
 export default {
 	async fetch(request, env, ctx) {
-		const helloWasmModule = await WebAssembly.instantiateStreaming(mod);
+		const helloWasmModule = await WebAssembly.compileStreaming(mod);
 		const addOne = helloWasmModule.exports.add_one;
 
 		const n = 4;
